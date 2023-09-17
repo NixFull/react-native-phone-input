@@ -30,6 +30,8 @@ export interface PhoneInputProps {
   onChangePhoneNumber?(phoneNumber: string): void;
   icon?: JSX.Element;
   countryContainerStyle?: object;
+  dialcodeStyle?: object;
+  placeholder?: string;
 }
 
 export interface PhoneInputChangeEvent {
@@ -51,6 +53,8 @@ const PhoneInput = ({
   onChangePhoneNumber = () => {},
   icon = <></>,
   countryContainerStyle = {},
+  dialcodeStyle = {},
+  placeholder = "",
 }: PhoneInputProps) => {
   const initialDialCode = useMemo(
     () =>
@@ -141,7 +145,9 @@ const PhoneInput = ({
           onPress={openCountryPicker}
         >
           <CountryFlag dialCode={dialCode} />
-          <Text style={{ fontWeight: "bold" }}>{dialCode?.dialCode}</Text>
+          <Text style={[{ fontWeight: "bold" }, dialcodeStyle]}>
+            {dialCode?.dialCode}
+          </Text>
           {icon && cloneElement(icon)}
         </TouchableOpacity>
         <TextInput
@@ -157,6 +163,7 @@ const PhoneInput = ({
             paddingLeft: 0,
             ...textStyle,
           }}
+          placeholder={placeholder}
         />
       </View>
       <CountryPicker
