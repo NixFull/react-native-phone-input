@@ -32,6 +32,7 @@ export interface PhoneInputProps {
   countryContainerStyle?: object;
   dialcodeStyle?: object;
   placeholder?: string;
+  disabled?: boolean;
 }
 
 export interface PhoneInputChangeEvent {
@@ -55,6 +56,7 @@ const PhoneInput = ({
   countryContainerStyle = {},
   dialcodeStyle = {},
   placeholder = "",
+  disabled = false,
 }: PhoneInputProps) => {
   const initialDialCode = useMemo(
     () =>
@@ -132,7 +134,6 @@ const PhoneInput = ({
       <View
         style={{
           borderColor: "#eeeeee",
-          borderBottomWidth: 1,
           flexDirection: "row",
           ...style,
         }}
@@ -143,6 +144,7 @@ const PhoneInput = ({
             countryContainerStyle,
           ]}
           onPress={openCountryPicker}
+          disabled={disabled}
         >
           <CountryFlag dialCode={dialCode} />
           <Text style={[{ fontWeight: "bold" }, dialcodeStyle]}>
@@ -156,6 +158,7 @@ const PhoneInput = ({
           onChangeText={handleChangeText}
           autoFocus={autoFocus}
           value={phoneNumber}
+          editable={disabled}
           style={{
             borderWidth: 0,
             flexGrow: 1,

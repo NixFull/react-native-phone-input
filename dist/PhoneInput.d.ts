@@ -15,6 +15,7 @@ export interface PhoneInputProps {
     countryContainerStyle?: object;
     dialcodeStyle?: object;
     placeholder?: string;
+    disabled?: boolean;
 }
 export interface PhoneInputChangeEvent {
     input: string;
@@ -23,5 +24,5 @@ export interface PhoneInputChangeEvent {
     isValid: boolean;
     e164: string | null;
 }
-declare const PhoneInput: ({ initialCountry, value, style, textStyle, dismissKeyboard, autoFocus, onChange, onChangePhoneNumber, icon, countryContainerStyle, dialcodeStyle, placeholder, }: PhoneInputProps) => JSX.Element;
+declare const PhoneInput: ({ initialCountry, value, style, textStyle, dismissKeyboard, autoFocus, onChange, onChangePhoneNumber, icon, countryContainerStyle, dialcodeStyle, placeholder, disabled, }: PhoneInputProps) => JSX.Element;
 export default PhoneInput;
