@@ -158,7 +158,7 @@ const PhoneInput = ({
           onChangeText={handleChangeText}
           autoFocus={autoFocus}
           value={phoneNumber}
-          editable={disabled}
+          editable={!disabled}
           style={{
             borderWidth: 0,
             flexGrow: 1,

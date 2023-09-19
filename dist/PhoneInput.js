@@ -102,7 +102,7 @@ const PhoneInput = ({ initialCountry = "US", value, style = {}, textStyle = {}, 
                 react_1.default.createElement(CountryFlag_1.default, { dialCode: dialCode }),
                 react_1.default.createElement(react_native_1.Text, { style: [{ fontWeight: "bold" }, dialcodeStyle] }, dialCode === null || dialCode === void 0 ? void 0 : dialCode.dialCode),
                 icon && (0, react_1.cloneElement)(icon)),
-            react_1.default.createElement(react_native_1.TextInput, { dataDetectorTypes: ["phoneNumber"], keyboardType: "phone-pad", onChangeText: handleChangeText, autoFocus: autoFocus, value: phoneNumber, editable: disabled, style: Object.assign({ borderWidth: 0, flexGrow: 1, height: 40, paddingLeft: 0 }, textStyle), placeholder: placeholder })),
+            react_1.default.createElement(react_native_1.TextInput, { dataDetectorTypes: ["phoneNumber"], keyboardType: "phone-pad", onChangeText: handleChangeText, autoFocus: autoFocus, value: phoneNumber, editable: !disabled, style: Object.assign({ borderWidth: 0, flexGrow: 1, height: 40, paddingLeft: 0 }, textStyle), placeholder: placeholder })),
         react_1.default.createElement(CountryPicker_1.default, { visible: countryPickerVisible, onSelect: handleSelect, onRequestClose: () => setCountryPickerVisible(false) })));
 };
 exports.default = PhoneInput;
